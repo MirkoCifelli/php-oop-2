@@ -72,7 +72,7 @@
                         <span> Per: <?php echo $product3 -> category-> race ?> <?php echo $product3 -> category-> icon ?></span>
                         <p>Prezzo: <?php echo $product3 -> price ?></p>
                         
-                        <span> Material: <?php echo $product3 -> material ?></span>  
+                        <span> Materiale: <?php echo $product3 -> material ?></span>  
                         <h4 class="text-center">Descrizione:</h4>
                         <p class="card-text overflow-y text-center"><?php echo $product3 -> description ?></p>
                         <span> Tipo di articolo: <?php echo get_class($product3)?></span>
@@ -86,7 +86,7 @@
                         <h5 class="card-title text-center "><?php echo $product4 -> name ?></h5>
                         <span>Per: <?php echo $product4 -> category-> race ?> <?php echo $product4 -> category-> icon ?></span>
                         <p>Prezzo: <?php echo $product4 -> price ?></p>
-                        <p class="card-text overflow-y">Material: <?php echo $product4 -> material ?></p>
+                        <p class="card-text overflow-y">Materiale: <?php echo $product4 -> material ?></p>
                         <span> Tipo di articolo: <?php echo get_class($product4)?></span>
                     </div>
                 </div>
