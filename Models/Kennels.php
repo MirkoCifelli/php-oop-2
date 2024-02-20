@@ -1,7 +1,9 @@
 <?php
 
+require_once __DIR__.'/../traits/HasMaterial.php';
+
 class Kennels extends Product{
-    public $material;
+    use HasMaterial;
     
     function __construct($name,$img,$price,$category,$material)
     {
