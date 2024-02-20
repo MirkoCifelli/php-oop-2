@@ -17,7 +17,7 @@ class Product{
         }
         else {
             // Dì al programmatore che sta sbagliando (e cosa)
-            throw new Exception('Valore prezzo frisbee non valido, is not a number');
+            throw new Exception('Valore prezzo non valido, is not a number');
         }
     }
     

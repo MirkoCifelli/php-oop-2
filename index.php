@@ -20,8 +20,12 @@
   
 
     // $allProduct = $product1;
-
-    $product2= new Food('Almo Nature Cat Daily Lattina',22.21,'https://arcaplanet.vtexassets.com/arquivos/ids/245336/almo-daily-menu-cat-400-gr-vitello.jpg',$gatto,'Grande','Normale');
+    try {
+        $product2 = new Food('Almo Nature Cat Daily Lattina',22.21,'https://arcaplanet.vtexassets.com/arquivos/ids/245336/almo-daily-menu-cat-400-gr-vitello.jpg',$gatto,'Grande','Normale');//code...
+    } catch (Exception $e) {
+            echo '<h4 style="color: red;">Valore quantità prodotto generico non valido!</h4>';
+    }
+    
 
     // $allProduct = $product2;
 
@@ -62,22 +66,22 @@
                         <img src="<?php echo $product1 -> img ?>" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title text-center"><?php echo $product1 -> name ?></h5>
-                            <span> Per: <?php echo $product1 -> category-> race ?> <?php echo $product1 -> category-> icon ?></span>
-                            <p> Prezzo: €<?php echo $product1 -> price ?></p>
+                            <span> Per: <?php echo $product1->category->race ?> <?php echo $product1->category->icon ?></span>
+                            <p> Prezzo: €<?php echo $product1->price ?></p>
                             <span> Tipo di articolo: <?php echo get_class($product1)?></span>    
                         </div>
                     </div>
 
 
                     <div class="card" style="width: 18rem;">
-                        <img src="<?php echo $product2 -> img ?>" class="card-img-top" alt="...">
+                        <img src="<?php echo $product2->img ?>" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title text-center"><?php echo $product2 -> name ?></h5>
-                            <span>Per: <?php echo $product2 -> category-> race ?> <?php echo $product2 -> category-> icon ?></span>
-                            <p>Prezzo: €<?php echo $product2 -> price ?></p>
+                            <h5 class="card-title text-center"><?php echo $product2->name ?></h5>
+                            <span>Per: <?php echo $product2->category->race ?> <?php echo $product2->category->icon ?></span>
+                            <p>Prezzo: €<?php echo $product2->price ?></p>
                             <span> Tipo di articolo: <?php echo get_class($product2)?></span>
-                            <p> Grandezza: <?php echo $product2 -> size ?></p>
-                            <span>Gusto : <?php echo $product2 -> flavour ?></span>
+                            <p> Grandezza: <?php echo $product2->size ?></p>
+                            <span>Gusto : <?php echo $product2->flavour ?></span>
                                 
                         </div>
                     </div>
@@ -86,23 +90,23 @@
                         <img src="<?php echo $product3 -> img ?>" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title text-center "><?php echo $product3 -> name ?></h5>
-                            <span> Per: <?php echo $product3 -> category-> race ?> <?php echo $product3 -> category-> icon ?></span>
-                            <p>Prezzo: €<?php echo $product3 -> price ?></p>
+                            <span> Per: <?php echo $product3->category->race ?> <?php echo $product3->category->icon ?></span>
+                            <p>Prezzo: €<?php echo $product3->price ?></p>
                             
                             <span> Materiale: <?php echo $product3 -> material ?></span>  
                             <h4 class="text-center">Descrizione:</h4>
-                            <p class="card-text overflow-y text-center"><?php echo $product3 -> description ?></p>
+                            <p class="card-text overflow-y text-center"><?php echo $product3->description ?></p>
                             <span> Tipo di articolo: <?php echo get_class($product3)?></span>
                         </div>
                     </div>
 
 
                     <div class="card" style="width: 18rem;">
-                        <img src="<?php echo $product4 -> img ?>" class="card-img-top" alt="...">
+                        <img src="<?php echo $product4->img ?>" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title text-center "><?php echo $product4 -> name ?></h5>
-                            <span>Per: <?php echo $product4 -> category-> race ?> <?php echo $product4 -> category-> icon ?></span>
-                            <p>Prezzo: €<?php echo $product4 -> price ?></p>
+                            <span>Per: <?php echo $product4->category->race ?> <?php echo $product4 ->category->icon ?></span>
+                            <p>Prezzo: €<?php echo $product4->price ?></p>
                             <p class="card-text overflow-y">Materiale: <?php echo $product4 -> material ?></p>
                             <span> Tipo di articolo: <?php echo get_class($product4)?></span>
                         </div>
