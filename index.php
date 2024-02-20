@@ -11,23 +11,27 @@
 
     $gatto = new Category('Gatto','<i class="fa-solid fa-cat"></i>');
 
-    $allProduct = [];
+    // $allProduct = [];
+    try {
+        $product1= new Product('Royal Canin Mini Adult',33.21,'https://arcaplanet.vtexassets.com/arquivos/ids/284621/Mini-Adult.jpg?v=638182891693570000',$cane);
+    } catch (Exception $e) {
+        echo '<h4 style="color: red;">Valore quantità prodotto generico non valido!</h4>';
+    }
+  
 
-    $product1= new Product('Royal Canin Mini Adult','€33.21','https://arcaplanet.vtexassets.com/arquivos/ids/284621/Mini-Adult.jpg?v=638182891693570000',$cane);
+    // $allProduct = $product1;
 
-    $allProduct = $product1;
+    $product2= new Food('Almo Nature Cat Daily Lattina',22.21,'https://arcaplanet.vtexassets.com/arquivos/ids/245336/almo-daily-menu-cat-400-gr-vitello.jpg',$gatto,'Grande','Normale');
 
-    $product2= new Food('Almo Nature Cat Daily Lattina','€22.21','https://arcaplanet.vtexassets.com/arquivos/ids/245336/almo-daily-menu-cat-400-gr-vitello.jpg',$gatto,'Grande','Normale');
+    // $allProduct = $product2;
 
-    $allProduct = $product2;
+    $product3= new Game('Peluche Scoiattolo Striato',4.95,'https://arcaplanet.vtexassets.com/arquivos/ids/217805/https---www.arcaplanet.it-media-catalog-product--t-r-trixie-scoiattolo-striato-in-peluche-tric85.jpg?v=637454593279430000',$cane,'Stoffa','Il peluche con squittio scoiattolo striato è un prodotto a marchio Trixie, azienda leader nella produzione di accessori per animali.');
 
-    $product3= new Game('Peluche Scoiattolo Striato','€4,90','https://arcaplanet.vtexassets.com/arquivos/ids/217805/https---www.arcaplanet.it-media-catalog-product--t-r-trixie-scoiattolo-striato-in-peluche-tric85.jpg?v=637454593279430000',$cane,'Stoffa','Il peluche con squittio scoiattolo striato è un prodotto a marchio Trixie, azienda leader nella produzione di accessori per animali.');
+    // $allProduct = $product3;
 
-    $allProduct = $product3;
+    $product4= new Kennels('Cuccia esterna per Cani Eco Lodge',69.99,'https://arcaplanet.vtexassets.com/arquivos/ids/225622/p-a-y--canile-eco-lodge-medium.jpg?v=637454754161230000',$cane,'Plastica');
 
-    $product4= new Kennels('Cuccia esterna per Cani Eco Lodge','€69,99','https://arcaplanet.vtexassets.com/arquivos/ids/225622/p-a-y--canile-eco-lodge-medium.jpg?v=637454754161230000',$cane,'Plastica');
-
-    $allProduct = $product4;
+    // $allProduct = $product4;
 
     // var_dump($product1);
     // var_dump($product2);
@@ -59,7 +63,7 @@
                         <div class="card-body">
                             <h5 class="card-title text-center"><?php echo $product1 -> name ?></h5>
                             <span> Per: <?php echo $product1 -> category-> race ?> <?php echo $product1 -> category-> icon ?></span>
-                            <p> Prezzo: <?php echo $product1 -> price ?></p>
+                            <p> Prezzo: €<?php echo $product1 -> price ?></p>
                             <span> Tipo di articolo: <?php echo get_class($product1)?></span>    
                         </div>
                     </div>
@@ -70,7 +74,7 @@
                         <div class="card-body">
                             <h5 class="card-title text-center"><?php echo $product2 -> name ?></h5>
                             <span>Per: <?php echo $product2 -> category-> race ?> <?php echo $product2 -> category-> icon ?></span>
-                            <p>Prezzo: <?php echo $product2 -> price ?></p>
+                            <p>Prezzo: €<?php echo $product2 -> price ?></p>
                             <span> Tipo di articolo: <?php echo get_class($product2)?></span>
                             <p> Grandezza: <?php echo $product2 -> size ?></p>
                             <span>Gusto : <?php echo $product2 -> flavour ?></span>
@@ -83,7 +87,7 @@
                         <div class="card-body">
                             <h5 class="card-title text-center "><?php echo $product3 -> name ?></h5>
                             <span> Per: <?php echo $product3 -> category-> race ?> <?php echo $product3 -> category-> icon ?></span>
-                            <p>Prezzo: <?php echo $product3 -> price ?></p>
+                            <p>Prezzo: €<?php echo $product3 -> price ?></p>
                             
                             <span> Materiale: <?php echo $product3 -> material ?></span>  
                             <h4 class="text-center">Descrizione:</h4>
@@ -98,7 +102,7 @@
                         <div class="card-body">
                             <h5 class="card-title text-center "><?php echo $product4 -> name ?></h5>
                             <span>Per: <?php echo $product4 -> category-> race ?> <?php echo $product4 -> category-> icon ?></span>
-                            <p>Prezzo: <?php echo $product4 -> price ?></p>
+                            <p>Prezzo: €<?php echo $product4 -> price ?></p>
                             <p class="card-text overflow-y">Materiale: <?php echo $product4 -> material ?></p>
                             <span> Tipo di articolo: <?php echo get_class($product4)?></span>
                         </div>

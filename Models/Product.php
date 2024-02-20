@@ -12,5 +12,13 @@ class Product{
         $this->price = $price;
         $this->img = $img;
         $this->category = $category;
+        if (is_numeric($price)) {
+            $this->price = $price;
+        }
+        else {
+            // Dì al programmatore che sta sbagliando (e cosa)
+            throw new Exception('Valore prezzo frisbee non valido, is not a number');
+        }
     }
+    
 }
