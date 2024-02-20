@@ -11,7 +11,7 @@
 
     $gatto = new Category('Gatto','<i class="fa-solid fa-cat"></i>');
 
-    // $allProduct = [];
+    $allProduct = [];
     try {
         $product1= new Product('Royal Canin Mini Adult',33.21,'https://arcaplanet.vtexassets.com/arquivos/ids/284621/Mini-Adult.jpg?v=638182891693570000',$cane);
     } catch (Exception $e) {
@@ -19,7 +19,7 @@
     }
   
 
-    // $allProduct = $product1;
+    $allProduct[] = $product1;
     try {
         $product2 = new Food('Almo Nature Cat Daily Lattina',22.21,'https://arcaplanet.vtexassets.com/arquivos/ids/245336/almo-daily-menu-cat-400-gr-vitello.jpg',$gatto,'Grande','Normale');//code...
     } catch (Exception $e) {
@@ -27,15 +27,15 @@
     }
     
 
-    // $allProduct = $product2;
+    $allProduct[] = $product2;
 
     $product3= new Game('Peluche Scoiattolo Striato',4.95,'https://arcaplanet.vtexassets.com/arquivos/ids/217805/https---www.arcaplanet.it-media-catalog-product--t-r-trixie-scoiattolo-striato-in-peluche-tric85.jpg?v=637454593279430000',$cane,'Stoffa','Il peluche con squittio scoiattolo striato è un prodotto a marchio Trixie, azienda leader nella produzione di accessori per animali.');
 
-    // $allProduct = $product3;
+    $allProduct[] = $product3;
 
     $product4= new Kennels('Cuccia esterna per Cani Eco Lodge',69.99,'https://arcaplanet.vtexassets.com/arquivos/ids/225622/p-a-y--canile-eco-lodge-medium.jpg?v=637454754161230000',$cane,'Plastica');
 
-    // $allProduct = $product4;
+    $allProduct[] = $product4;
 
     // var_dump($product1);
     // var_dump($product2);
@@ -61,59 +61,63 @@
                 <h2 class="text-center mb-4">
                     L'e-commerce prodotti per animali
                 </h2>
-                <div class="scatola d-flex">
-                    <div class="card" style="width: 18rem;">
-                        <img src="<?php echo $product1 -> img ?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-center"><?php echo $product1 -> name ?></h5>
-                            <span> Per: <?php echo $product1->category->race ?> <?php echo $product1->category->icon ?></span>
-                            <p> Prezzo: €<?php echo $product1->price ?></p>
-                            <span> Tipo di articolo: <?php echo get_class($product1)?></span>    
+                <div class="row">
+                <?php
+                        foreach ($allProduct as $singleProduct) {
+                    ?>
+                        <div class="col-3">
+                            <div class="card">
+                                <img src="<?php echo $singleProduct->img; ?>" class="card-img-top">
+                                <div class="card-body">
+                                    <h3>
+                                        <?php echo $singleProduct->name; ?>
+                                    </h3>
+                                    <ul>
+                                        <li>
+                                            Categoria: <?php echo $singleProduct->category->race; ?>
+                                            <?php echo $singleProduct->category->icon; ?>
+                                        </li>
+                                        <li>
+                                            € <?php echo $singleProduct->price; ?>
+                                        </li>
+                                        
+                                        <?php
+                                            if (get_class($singleProduct) == 'Game') {
+                                        ?>
+                                            <li>
+                                                Descrizione: <?php echo $singleProduct->description; ?>
+                                            </li>
+                                            <li>
+                                                Materiale: <?php echo $singleProduct->material; ?>
+                                            </li>
+                                        <?php
+                                            }
+                                            else if (get_class($singleProduct) == 'Food') {
+                                        ?>
+                                            <li>
+                                                Grandezza: <?php echo $singleProduct->size; ?>
+                                            </li>
+                                            <li>
+                                                Sapore: <?php echo $singleProduct->flavour; ?>
+                                            </li>
+                                        <?php
+                                            }
+                                            else if (get_class($singleProduct) == 'Kennels'){
+                                        ?>
+                                            <li>
+                                                Dimensioni: <?php echo $singleProduct->material; ?> 
+                                            </li>
+                                        <?php
+                                            }
+                                        ?>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-
-
-                    <div class="card" style="width: 18rem;">
-                        <img src="<?php echo $product2->img ?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-center"><?php echo $product2->name ?></h5>
-                            <span>Per: <?php echo $product2->category->race ?> <?php echo $product2->category->icon ?></span>
-                            <p>Prezzo: €<?php echo $product2->price ?></p>
-                            <span> Tipo di articolo: <?php echo get_class($product2)?></span>
-                            <p> Grandezza: <?php echo $product2->size ?></p>
-                            <span>Gusto : <?php echo $product2->flavour ?></span>
-                                
-                        </div>
-                    </div>
-
-                    <div class="card" style="width: 18rem;">
-                        <img src="<?php echo $product3 -> img ?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-center "><?php echo $product3 -> name ?></h5>
-                            <span> Per: <?php echo $product3->category->race ?> <?php echo $product3->category->icon ?></span>
-                            <p>Prezzo: €<?php echo $product3->price ?></p>
-                            
-                            <span> Materiale: <?php echo $product3 -> material ?></span>  
-                            <h4 class="text-center">Descrizione:</h4>
-                            <p class="card-text overflow-y text-center"><?php echo $product3->description ?></p>
-                            <span> Tipo di articolo: <?php echo get_class($product3)?></span>
-                        </div>
-                    </div>
-
-
-                    <div class="card" style="width: 18rem;">
-                        <img src="<?php echo $product4->img ?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-center "><?php echo $product4 -> name ?></h5>
-                            <span>Per: <?php echo $product4->category->race ?> <?php echo $product4 ->category->icon ?></span>
-                            <p>Prezzo: €<?php echo $product4->price ?></p>
-                            <p class="card-text overflow-y">Materiale: <?php echo $product4 -> material ?></p>
-                            <span> Tipo di articolo: <?php echo get_class($product4)?></span>
-                        </div>
-                    </div>
-
-
-                </div>
+                    <?php
+                        }
+                    ?>
+                </div>    
             </div>
         </main>
 
